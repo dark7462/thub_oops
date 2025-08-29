@@ -18,7 +18,7 @@ public:
         cout << "Age : " << this->age << "\n";
     }
 };
-class student : virtual public human{
+class student : public virtual human{
 public:
     int roll_no;
     student(){
@@ -33,7 +33,7 @@ public:
         cout << "Roll Number : " << this->roll_no << "\n";
     }
 };
-class teacher : virtual public human{
+class teacher : public virtual human{
 public:
     string department;
     teacher(){
@@ -52,7 +52,7 @@ class TA : public student, public teacher{
 public:
     string phd;
     TA(){this->phd = "";}
-    TA(string name, int age, int roll_no, string department, string phd) : human(name,age), teacher("",0,department),student("",0,roll_no){
+    TA(string name, int age, int roll_no, string department, string phd) : human(name,age), teacher(name,age,department),student(name,age,roll_no){ // payatension to the assigment of the constructors
         this->phd = phd;
     }
     void display(){
