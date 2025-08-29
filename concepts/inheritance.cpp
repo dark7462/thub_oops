@@ -16,13 +16,13 @@ public:
     }
 };
 
-class child : public perent{
+class child : public perent{ // single level inheritence
 public:
     string name;
     child(){
         this->data = 0;
     }
-    child(int data, string name) : perent(data){
+    child(int data, string name) : perent(data){ // multi level inheritence
         this->name = name;
     }
     void display(){
@@ -30,6 +30,14 @@ public:
         cout << "Name of the child : " << this->name << "\n";
     }
 };
+
+class grandchild : public child{
+public:
+    string degree;
+    grandchild(int data, string name, string degree) : child(data,name){
+        this->degree = degree;
+    }
+};  
 
 int main(){
     // your code goes here
